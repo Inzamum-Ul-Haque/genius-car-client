@@ -8,6 +8,10 @@ const Header = () => {
       <>
         <li className="font-semibold">
           <Link to="/">Home</Link>
+          <Link to="/">About</Link>
+          <Link to="/">Services</Link>
+          <Link to="/">Blog</Link>
+          <Link to="/">Contact</Link>
         </li>
       </>
     </>
@@ -40,7 +44,10 @@ const Header = () => {
             {menuItems}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost normal-case text-xl">
+        <Link
+          to="/"
+          className="btn btn-ghost normal-case text-xl hover:bg-transparent"
+        >
           <img src={logo} alt="" />
         </Link>
       </div>
