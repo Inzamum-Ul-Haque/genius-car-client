@@ -49,31 +49,10 @@ const bannerData = [
 
 const Banner = () => {
   return (
-    <div className="carousel w-full max-w-screen-xl mx-auto">
+    <div className="carousel w-full max-w-screen-xl mx-auto my-10">
       {bannerData.map((slide) => (
         <BannerItem key={slide.id} slide={slide} />
       ))}
-
-      {/* <BannerItem img={img1} />
-      <div id="slide2" className="carousel-item relative w-full">
-        <img alt="" src={img2} className="w-full" />
-        <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
-          <a
-            onClick={() => window.scrollTo({ top: 0 })}
-            href="#slide1"
-            className="btn btn-circle mr-5"
-          >
-            ❮
-          </a>
-          <a
-            onClick={() => window.scrollTo({ top: 0 })}
-            href="#slide3"
-            className="btn btn-circle"
-          >
-            ❯
-          </a>
-        </div>
-      </div> */}
     </div>
   );
 };
