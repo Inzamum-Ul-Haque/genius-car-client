@@ -1,10 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import login from "../../assets/images/login/login.svg";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const SignUp = () => {
+  const { createUser } = useContext(AuthContext);
+
   const handleSignUp = (event) => {
     event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
   };
 
   return (
@@ -28,6 +41,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="email"
                 className="input input-bordered w-96"
+                required
               />
             </div>
             <div className="form-control">
@@ -39,6 +53,7 @@ const SignUp = () => {
                 type="text"
                 placeholder="email"
                 className="input input-bordered w-96"
+                required
               />
             </div>
             <div className="form-control">
@@ -47,15 +62,11 @@ const SignUp = () => {
               </label>
               <input
                 name="password"
-                type="text"
+                type="password"
                 placeholder="password"
                 className="input input-bordered"
+                required
               />
-              <label className="label">
-                <a alt="" href="/" className="label-text-alt link link-hover">
-                  Forgot password?
-                </a>
-              </label>
             </div>
             <div className="form-control">
               <label className="label">
@@ -63,15 +74,16 @@ const SignUp = () => {
               </label>
               <input
                 name="confirmPassword"
-                type="text"
+                type="password"
                 placeholder="confirm password"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control mt-6">
               <input
                 type="submit"
-                value="Login"
+                value="Sign Up"
                 className="btn btn-primary bg-orange-600 text-white rounded-md hover:bg-orange-500 border-orange-600 hover:border-orange-500"
               />
             </div>
