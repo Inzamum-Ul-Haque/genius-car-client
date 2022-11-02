@@ -71,7 +71,7 @@ const Checkout = () => {
             type="text"
             placeholder="Email"
             className="input input-bordered w-full mb-5"
-            defaultValue={user.email}
+            defaultValue={user?.email}
             readOnly
           />
         </div>
